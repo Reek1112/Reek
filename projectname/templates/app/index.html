@@ -1,0 +1,26 @@
+{% extends 'shared/base.html' %}
+{% block title %}목록{% endblock %}
+{% block style %}
+{% endblock %}
+{% block body %}
+
+    <center>
+        <table class="uk-table uk-table-divider uk-table-striped uk-table-middle">
+            <thead><td>#<td>제목<td>삭제</td></thead>
+            <tbody>
+                  {% for aitem in board %}
+              <tr>
+                  <td>
+                      {{forloop.counter}}
+                  <td>
+                        <a href="/app/board/{{aitem.id}}">{{aitem.title}}</a>
+                  <td>
+                 <a href="/app/remove/{{ aitem.id }}">삭제</a>
+                  </td>
+               </tr>
+               {% endfor %}
+          </tbody>
+      </table>
+        <a class="uk-button uk-button-default uk-button-primary" href="/app/new">누르면 안 될 것처럼 생긴 것</a>
+    </center>
+{% endblock %}
